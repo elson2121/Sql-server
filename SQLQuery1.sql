@@ -40,15 +40,41 @@ BEGIN
     FROM PRODUCT 
     WHERE productName = 'Hard disk';
 END;
+
+
+
 -- III. Update Procedure for Mouse quantity
 CREATE PROCEDURE sp_UpdateMouseQuantity
 AS
 BEGIN
     UPDATE PRODUCT 
-    SET quantity = 25 
+    SET quantity = 25
     WHERE productName = 'Mouse';
     PRINT 'Mouse quantity updated to 25.';
 END;
+
+select * from PRODUCT 
+UPDATE PRODUCT SET quantity = 50 WHERE productName = 'Mouse';
+
+
+
+
+
+
+
+CREATE PROCEDURE sp_UpdateMouseQuantity
+AS
+BEGIN
+    UPDATE PRODUCT 
+    SET quantity = 50 
+    WHERE productName = 'Mouse';
+    PRINT 'Mouse quantity updated to 25.';
+END;
+
+
+
+
+
 -- I. Duplication Check Trigger (Before Insert)
 CREATE TRIGGER trg_PreventDuplicateEmployee
 ON EMPLOYEE
@@ -72,6 +98,9 @@ CREATE TABLE EMPLOYEE_SALARY_LOG (
     newSalary DECIMAL(10,2) NOT NULL,
     updateTime DATETIME DEFAULT GETDATE()
 );
+select * from PRODUCT 
+
+
 
 -- II. Salary Log Trigger (After Update)
 CREATE TRIGGER trg_LogSalaryUpdate
